@@ -1,23 +1,21 @@
+import argparse
 import os
+import random
 from collections import OrderedDict
 
-import numpy as np
-import torch
-
-torch.manual_seed(21)
-import random
-
-random.seed(21)
-import torch.multiprocessing
-
-torch.multiprocessing.set_sharing_strategy('file_system')
 import albumentations as A
 import albumentations.pytorch as Ap
-from utils import architectures
-from utils.python_patch_extractor.PatchExtractor import PatchExtractor
+import numpy as np
+import torch
+import torch.multiprocessing
 from PIL import Image
 
-import argparse
+from .utils import architectures
+from .utils.python_patch_extractor.PatchExtractor import PatchExtractor
+
+torch.manual_seed(21)
+random.seed(21)
+torch.multiprocessing.set_sharing_strategy('file_system')
 
 
 class Detector:
