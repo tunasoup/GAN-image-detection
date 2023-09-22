@@ -87,5 +87,6 @@ class Detector(torch.nn.Module):
 
             scores[idx] = torch.mean(models_scores)
 
-        labels = (scores > 0).to(torch.int)
-        return labels, scores
+        sig = scores.sigmoid()
+        label = torch.round(sig).to(torch.int)
+        return label, sig
